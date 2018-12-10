@@ -28,3 +28,19 @@ jenkins:
       EnvVars:
         DOCKER_REGISTRY: 262908560393.dkr.ecr.us-west-2.amazonaws.com
         TILLER_NAMESPACE: kube-system
+expose:
+  config:
+    domain: 63.33.234.3.nip.io
+    exposer: Ingress
+    http: "true"
+    tlsacme: "false"
+    pathMode: ""
+  Annotations:
+    helm.sh/hook: post-install,post-upgrade
+    helm.sh/hook-delete-policy: hook-succeeded
+jenkins:
+  Servers:
+    Global:
+      EnvVars:
+        DOCKER_REGISTRY: 262908560393.dkr.ecr.us-west-2.amazonaws.com
+        TILLER_NAMESPACE: kube-system
